@@ -11,6 +11,8 @@ class Review < ApplicationRecord
 
   after_save :reviewable_rating
 
+  scope :descriptive_only, -> { where.not(description: nil) }
+
   private
 
   def fictional_profanity
